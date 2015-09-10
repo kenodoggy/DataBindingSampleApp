@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Data Binding Sample</string>
+    <string name="activity_main_btn_reset">Reset</string>
+</resources>

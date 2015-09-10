@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- the new root of your view, wrap your regular layout with this layout tag -->
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- declare the variable name and type that the data binding framework will bind to -->
+    <data>
+        <variable name="obj" type="com.kenodoggy.databindingsample.observable.BindableObject"/>
+    </data>
+    <!-- your regular layout (almost) -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- the textview is bound to the variable in obj -->
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:textSize="21sp"
+            android:text="@{obj.textValue}" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+            <!-- note the listener on this edittext -->
+            <EditText
+                android:id="@+id/activity_main_et"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@{obj.editTextValue}"
+                android:addTextChangedListener="@{obj.watcher}" />
+
+            <Button
+                android:id="@+id/activity_main_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignBaseline="@id/activity_main_et"
+                android:text="@string/activity_main_btn_reset"
+                android:onClick="onClickReset"
+                />
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>
