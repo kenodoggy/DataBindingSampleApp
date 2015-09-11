@@ -33,6 +33,7 @@ public class BindableObject extends BaseObservable{
         if (verifyNewStringIsValid(editTextValue, value)) {
             this.editTextValue = value;
             notifyChange();
+            setTextValue(getEditTextValue());
         }
     }
 
@@ -56,7 +57,6 @@ public class BindableObject extends BaseObservable{
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             setEditTextValue(s.toString());
-            setTextValue(getEditTextValue());
         }
 
         @Override
