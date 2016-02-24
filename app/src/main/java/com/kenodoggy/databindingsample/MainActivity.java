@@ -11,13 +11,12 @@ import com.kenodoggy.databindingsample.observable.BindableObject;
 public class MainActivity extends AppCompatActivity {
 
     private BindableObject bindableObject;
-    private ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bindableObject = new BindableObject();
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.setObj(bindableObject);
     }
 
